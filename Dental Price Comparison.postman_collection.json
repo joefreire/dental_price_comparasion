@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "4e796e02-6272-400d-9500-974c64aa72d8",
+		"name": "Dental Price Comparison",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3587714"
+	},
+	"item": [
+		{
+			"name": "Compare",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Dental Floss\": \"5\",\r\n    \"Ibuprofen\": \"12\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/compare",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"compare"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Compare2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Ibuprofen\": \"105\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/compare",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"compare"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
