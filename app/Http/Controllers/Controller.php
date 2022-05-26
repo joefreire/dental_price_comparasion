@@ -7,15 +7,16 @@ use App\Models\Supplier;
 
 class Controller extends BaseController
 {
-    public $suppliers = ['supplierA', 'supplierB'];
+    public $suppliers;
     public $supplierA;
     public $supplierB;
     public $products;
     public function __construct()
     {
         $supplierModel = new Supplier;
-        $this->supplierA = $supplierModel->getSupplier('supplierA');
-        $this->supplierB = $supplierModel->getSupplier('supplierB');
-        $this->products = array_unique(array_merge(array_keys($this->supplierA), array_keys($this->supplierB)));
+        $this->supplierA = $supplierModel->getProductsSupplier('supplierA');
+        $this->supplierB = $supplierModel->getProductsSupplier('supplierB');
+        $this->suppliers = $supplierModel->getSuppliers();
+        $this->products = $supplierModel->getProducts();
     }
 }

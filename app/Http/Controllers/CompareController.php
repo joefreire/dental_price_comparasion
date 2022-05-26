@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ComparePostRequest;
+use App\Http\Responses\CompareResponse;
 use Illuminate\Http\Request;
 
 class CompareController extends Controller
@@ -9,10 +11,15 @@ class CompareController extends Controller
     /**
      * Return all items.
      *
-     * @return json
+     * @return App\Http\Responses\CompareResponse;
      */
     public function compareValues(Request $request)
     {
+        $compareRequest = new ComparePostRequest($request->all());
+        if (!$compareRequest->validate()) {
+            $result = new CompareResponse([], 403);
+            return $result->response();
+        }
         $total = [];
         if (!empty($request->all())) {
             foreach ($request->all() as $product => $quantity) {
@@ -45,6 +52,8 @@ class CompareController extends Controller
                 }
             }
         }
-        return response()->json([ucfirst($total['result']) . ' is cheaper - ' . $total[$total['result']]['total_pay'] . ' EUR']);
+        $result = new CompareResponse($total, 200);
+        return $result->response();
+        //return response()->json(ucfirst($total['result']) . ' is cheaper - ' . $total[$total['result']]['total_pay'] . ' EUR');
     }
 }
