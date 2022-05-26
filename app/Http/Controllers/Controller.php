@@ -6,7 +6,7 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
-    public $suppliers = ['supplierA','supplierB'];
+    public $suppliers = ['supplierA', 'supplierB'];
     public $supplierA;
     public $supplierB;
     public $products;
@@ -18,8 +18,8 @@ class Controller extends BaseController
         ];
         $this->supplierB = [
             'dental_floss' => ['1' => 8, '10' => 71],
-            'ibuprofen' => ['1' => 6, '5' => 25, '100'=>410]
+            'ibuprofen' => ['1' => 6, '5' => 25, '100' => 410]
         ];
-        $this->products = array_unique(array_merge(array_keys($this->supplierA),array_keys($this->supplierB)));
+        $this->products = array_unique(array_merge(array_keys($this->supplierA), array_keys($this->supplierB)));
     }
 }

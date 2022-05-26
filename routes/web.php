@@ -16,5 +16,3 @@
 $router->get('/', function () use ($router) {
     return 'Hello Dental Price Comparison';
 });
-
-$router->post('/compare', ['uses' => 'CompareController@compareValues']);
