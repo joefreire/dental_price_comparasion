@@ -54,6 +54,5 @@ class CompareController extends Controller
         }
         $result = new CompareResponse($total, 200);
         return $result->response();
-        //return response()->json(ucfirst($total['result']) . ' is cheaper - ' . $total[$total['result']]['total_pay'] . ' EUR');
     }
 }
