@@ -16,6 +16,9 @@ class ComparePostRequest
     }
     public function validate()
     {
+        if (empty($this->data)) {
+            return false;
+        }
         foreach ($this->data as $product => $value) {
             $fomatedProduct = str_replace(' ', '_', strtolower(trim($product)));
             if (!in_array($fomatedProduct, $this->products)) {
